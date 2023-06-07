@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS employees(
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    employee_no INT UNSIGNED NOT NULL,
+    first_name VARCHAR(255) NOT NULL, 
+    last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM ('waiter', 'chef', 'manager') NOT NULL,
+    location_id BIGINT UNSIGNED NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+
+    PRIMARY KEY (id),
+    FOREIGN KEY (location_id) REFERENCES locations (id)
+);
